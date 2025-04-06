@@ -12,12 +12,13 @@
 body {
   margin: 0;
   background-color: #F3F6FD;
-
+  font-weight: 400;
 }
 
 .app {
   display: flex;
   min-height: 100vh;
+  gap: 50px;
 }
 
 .pannel {
@@ -87,5 +88,102 @@ body {
 }
 
 .menu__add:hover {
+  background: #EFF2FF;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  min-width: 900px;
+  padding: 45px;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 33px;
+  color: #000000;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 235px;
+}
+
+.progress__text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress__name {
+  font-size: 14px;
+  line-height: 16px;
+  color: #232360;
+}
+
+.progress__percent {
+  font-size: 12px;
+  line-height: 13px;
+  color: #768396;
+}
+
+.progress__bar {
+  width: 100%;
+  background: #E6E9ED;
+  border-radius: 4px;
+  height: 5px;
+  position: relative;
+}
+
+.progress__coverBar {
+  position: absolute;
+  width: 50%;
+  height: 5px;
+  border-radius: 4px;
+  background: #5051F9;
+}
+
+.main {
+  margin-top: 30px;
+}
+
+.habbit {
+  background: #FFFFFF;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.habbit__day {
+  background: #FBFAFF;
+  border-radius: 10px 0 0 10px;
+  border-right: 1px solid #E7EBFB;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 20px 40px;
+}
+
+.habbit__comment {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 20px 25px;
+}
+
+.habbit__delete {
+  margin-left: auto;
+  margin-right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.habbit__delete:hover {
   background: #EFF2FF;
 }
