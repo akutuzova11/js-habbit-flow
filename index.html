@@ -9,7 +9,7 @@
 
   <meta property="og:image" content="/og.png" />
 
-<link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="src/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
@@ -32,12 +32,34 @@
           </button>
         </div>
         <button class="menu__add">
-         <img src="./src/assets/add.svg" alt="add a habit">
+          <img src="./src/assets/add.svg" alt="add a habit">
         </button>
       </nav>
     </div>
     <div class="content">
-
+      <header>
+        <h1>Push-ups</h1>
+        <div class="progress">
+          <div class="progress__text">
+            <div class="progress__name">Progress</div>
+            <div class="progress__percent">80%</div>
+          </div>
+          <div class="progress__bar">
+            <div class="progress__coverBar"></div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div>
+          <div class="habbit">
+            <div class="habbit__date">Day 1</div>
+            <div class="habbit__comment">First trial is always difficult</div>
+            <button class="habbit__delete">
+              <img src="./src/assets/delete.svg" alt="">
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
   </div>
   <script type="module" src="/src/script/main.js"></script>
