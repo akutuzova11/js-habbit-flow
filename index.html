@@ -1,14 +1,72 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <script type="module" crossorigin src="/assets/index-_AYE_jbl.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CrYBktwj.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/pageIcon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HabitFlow</title>
+
+  <meta property="og:image" content="/og.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="module" crossorigin src="/assets/index-w3nJqu0u.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B9tz7huS.css">
+</head>
+
+<body>
+  <div class="app">
+    <div class="pannel">
+      <img class="logo" src="/assets/logo-DT_JSIvF.svg" alt="logo of HabitFlow">
+      <nav class="menu">
+        <div class="menu__list">
+        </div>
+        <button class="menu__add">
+          <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M10.3333%2018.6667C14.9357%2018.6667%2018.6667%2014.9357%2018.6667%2010.3333C18.6667%205.73096%2014.9357%202%2010.3333%202C5.73096%202%202%205.73096%202%2010.3333C2%2014.9357%205.73096%2018.6667%2010.3333%2018.6667Z'%20stroke='%23CAD5FF'%20stroke-miterlimit='10'/%3e%3cpath%20d='M5.41663%2010H14.5833'%20stroke='%23CAD5FF'%20stroke-miterlimit='10'/%3e%3cpath%20d='M10%205.41666V14.5833'%20stroke='%23CAD5FF'%20stroke-miterlimit='10'/%3e%3c/svg%3e" alt="add a habit">
+        </button>
+      </nav>
+    </div>
+    <div class="content">
+      <header>
+        <h1 class="h1">-</h1>
+        <div class="progress">
+          <div class="progress__text">
+            <div class="progress__name">Progress</div>
+            <div class="progress__percent">%</div>
+          </div>
+          <div class="progress__bar">
+            <div class="progress__coverBar"></div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div>
+          <div class="habbit">
+            <div class="habbit__day">Day 1</div>
+            <div class="habbit__comment">The first try is always the hardest</div>
+            <button class="habbit__delete">
+              <img src="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M18%206V18C18%2019.1046%2017.1046%2020%2016%2020H8C6.89543%2020%206%2019.1046%206%2018V6M15%206V5C15%203.89543%2014.1046%203%2013%203H11C9.89543%203%209%203.89543%209%205V6M4%206H20M10%2010V16M14%2010V16'%20stroke='%2394A3BD'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="">
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="habbit">
+            <div class="habbit__day">Day 2</div>
+            <form class="habbit__form">
+              <input class="input__text" type="text" placeholder="Comment" />
+              <img class="input__icon" src="data:image/svg+xml,%3csvg%20width='18'%20height='18'%20viewBox='0%200%2018%2018'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M5.41773%208.09964C5.23998%208.09964%205.06622%208.15242%204.91842%208.25131C4.77063%208.3502%204.65543%208.49076%204.58741%208.6552C4.51939%208.81965%204.50159%209.0006%204.53627%209.17517C4.57095%209.34975%204.65654%209.51011%204.78223%209.63597C4.90792%209.76183%205.06806%209.84754%205.2424%209.88227C5.41674%209.91699%205.59744%209.89917%205.76166%209.83106C5.92589%209.76294%206.06625%209.64759%206.165%209.49959C6.26376%209.35159%206.31647%209.1776%206.31647%208.9996C6.31647%208.76092%206.22178%208.53201%206.05323%208.36323C5.88469%208.19446%205.65609%208.09964%205.41773%208.09964ZM9.01267%208.09964C8.83491%208.09964%208.66115%208.15242%208.51336%208.25131C8.36556%208.3502%208.25037%208.49076%208.18234%208.6552C8.11432%208.81965%208.09652%209.0006%208.1312%209.17517C8.16588%209.34975%208.25148%209.51011%208.37717%209.63597C8.50286%209.76183%208.66299%209.84754%208.83733%209.88227C9.01167%209.91699%209.19238%209.89917%209.3566%209.83106C9.52082%209.76294%209.66118%209.64759%209.75994%209.49959C9.85869%209.35159%209.9114%209.1776%209.9114%208.9996C9.9114%208.76092%209.81671%208.53201%209.64817%208.36323C9.47962%208.19446%209.25103%208.09964%209.01267%208.09964ZM12.6076%208.09964C12.4298%208.09964%2012.2561%208.15242%2012.1083%208.25131C11.9605%208.3502%2011.8453%208.49076%2011.7773%208.6552C11.7093%208.81965%2011.6915%209.0006%2011.7261%209.17517C11.7608%209.34975%2011.8464%209.51011%2011.9721%209.63597C12.0978%209.76183%2012.2579%209.84754%2012.4323%209.88227C12.6066%209.91699%2012.7873%209.89917%2012.9515%209.83106C13.1158%209.76294%2013.2561%209.64759%2013.3549%209.49959C13.4536%209.35159%2013.5063%209.1776%2013.5063%208.9996C13.5063%208.76092%2013.4116%208.53201%2013.2431%208.36323C13.0746%208.19446%2012.846%208.09964%2012.6076%208.09964ZM9.01267%200C7.83243%200%206.66376%200.232782%205.57336%200.685054C4.48297%201.13733%203.49221%201.80023%202.65766%202.63592C0.972209%204.32368%200.025332%206.61276%200.025332%208.9996C0.0174752%2011.0777%200.736044%2013.0931%202.05647%2014.6963L0.259003%2016.4963C0.134297%2016.6228%200.049819%2016.7835%200.0162296%2016.9581C-0.0173597%2017.1327%200.00144417%2017.3133%200.0702687%2017.4772C0.144916%2017.6392%200.265927%2017.7752%200.417941%2017.8682C0.569955%2017.9611%200.746117%2018.0067%200.924065%2017.9992H9.01267C11.3963%2017.9992%2013.6822%2017.051%2015.3677%2015.3633C17.0531%2013.6755%2018%2011.3864%2018%208.9996C18%206.61276%2017.0531%204.32368%2015.3677%202.63592C13.6822%200.94817%2011.3963%200%209.01267%200ZM9.01267%2016.1993H3.09001L3.92583%2015.3623C4.09323%2015.1937%204.18718%2014.9656%204.18718%2014.7278C4.18718%2014.4901%204.09323%2014.262%203.92583%2014.0934C2.74902%2012.9163%202.01618%2011.367%201.85218%209.70948C1.68818%208.05199%202.10315%206.38882%203.02641%205.00335C3.94966%203.61787%205.32408%202.59581%206.91549%202.11128C8.50689%201.62676%2010.2168%201.70975%2011.754%202.34612C13.2912%202.98249%2014.5604%204.13286%2015.3455%205.60125C16.1307%207.06964%2016.3831%208.7652%2016.0597%2010.399C15.7364%2012.0329%2014.8574%2013.5039%2013.5724%2014.5616C12.2874%2015.6192%2010.676%2016.198%209.01267%2016.1993Z'%20fill='%2394A3BD'/%3e%3c/svg%3e" alt="">
+              <button class="button">Ready</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+
 </html>
