@@ -10,6 +10,10 @@ const page = {
     progressPercent: document.querySelector(".progress__percent"),
     progressCoverBar: document.querySelector(".progress__coverBar"),
   },
+  content: {
+    daysContainer: document.getElementById("days"),
+    nextDay: document.querySelector(".habbit__day"),
+  },
 };
 
 function loadData() {
@@ -17,6 +21,8 @@ function loadData() {
   const habbitsArray = JSON.parse(habbitsString);
   if (Array.isArray(habbitsArray)) {
     habbits = habbitsArray;
+  } else {
+    habbits = [];
   }
 }
 
@@ -47,17 +53,32 @@ function rerenderMenu(activeHabbit) {
   }
 }
 
-function renderHead(activeHabbit) {
-  if (!activeHabbit) {
-    return;
-  }
+function rerenderHead(activeHabbit) {
   page.header.h1.innerText = activeHabbit.name;
   const progress =
     activeHabbit.days.length / activeHabbit.target > 1
       ? 100
       : (activeHabbit.days.length / activeHabbit.target) * 100;
-      page.header.progressPercent.innerText = progress.toFixed(0) + "%";
-      page.header.progressCoverBar.setAttribute("style", `width: ${progress}%`)
+  page.header.progressPercent.innerText = progress.toFixed(0) + "%";
+  page.header.progressCoverBar.setAttribute("style", `width: ${progress}%`);
+}
+
+function rerenderContent(activeHabbit) {
+  page.content.daysContainer.innerHTML = "";
+  for (const index in activeHabbit.days) {
+    const element = document.createElement("div");
+    element.classList.add("habbit");
+    element.innerHTML = `<div class="habbit__day"> Day ${
+      Number(index) + 1
+    }</div>
+    <div class="habbit_comment">${activeHabbit.days[index].comment}</div>
+    <button class="habbit__delete" onclick="deleteDay(${index})">
+    <img src="./src/assets/delete.svg" alt="Delete day ${index + 1}" />
+    </button>`;
+    page.content.daysContainer.appendChild(element);
+  }
+  page.content.nextDay.innerHTML = `Day ${activeHabbit.days.length + 1}
+    `;
 }
 
 function rerender(activeHabbitId) {
@@ -66,10 +87,13 @@ function rerender(activeHabbitId) {
     return;
   }
   rerenderMenu(activeHabbit);
-  renderHead(activeHabbit);
+  rerenderHead(activeHabbit);
+  rerenderContent(activeHabbit);
 }
 
 (() => {
   loadData();
-  rerender(habbits[0].id);
+  if (habbits.length > 0) {
+    rerender(habbits[0].id);
+  }
 })();
