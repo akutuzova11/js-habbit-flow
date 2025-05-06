@@ -1,11 +1,6 @@
 :root {
   font-family: "Comfortaa", sans-serif;
   font-weight: 500;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
 
@@ -22,7 +17,7 @@ body {
 }
 
 .pannel {
-  background: white;
+  background-color: #FFFFFF;
   min-height: 100vh;
   padding: 30px;
 }
@@ -48,7 +43,7 @@ body {
 }
 
 .menu__item {
-  background: #FFFFFF;
+  background-color: #FFFFFF;
   box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
   border-radius: 12px;
   border: none;
@@ -88,7 +83,7 @@ body {
 }
 
 .menu__add:hover {
-  background: #EFF2FF;
+  background-color: #EFF2FF;
 }
 
 header {
@@ -134,7 +129,7 @@ h1 {
 
 .progress__bar {
   width: 100%;
-  background: #E6E9ED;
+  background-color: #E6E9ED;
   border-radius: 4px;
   height: 5px;
   position: relative;
@@ -144,7 +139,7 @@ h1 {
   position: absolute;
   height: 5px;
   border-radius: 4px;
-  background: #5051F9;
+  background-color: #5051F9;
   transition: all 0.5s;
 }
 
@@ -153,7 +148,7 @@ h1 {
 }
 
 .habit {
-  background: #FFFFFF;
+  background-color: #FFFFFF;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -161,7 +156,7 @@ h1 {
 }
 
 .habit__day {
-  background: #FBFAFF;
+  background-color: #FBFAFF;
   border-radius: 10px 0 0 10px;
   border-right: 1px solid #E7EBFB;
   font-size: 14px;
@@ -187,11 +182,11 @@ h1 {
 }
 
 .habit__delete:hover {
-  background: #EFF2FF;
+  background-color: #EFF2FF;
 }
 
 .button {
-  background: EDECFE;
+  background-color: EDECFE;
   border-radius: 9px;
   border: none;
   font-size: 13px;
@@ -199,6 +194,8 @@ h1 {
   color: #5051F9;
   padding: 14px 30px;
   cursor: pointer;
+  min-width: fit-content;
+  flex-grow: 0;
 }
 
 .button:hover {
@@ -206,15 +203,15 @@ h1 {
 }
 
 input {
-  background: #FFFFFF;
+  background-color: #FFFFFF;
   border: 1px solid #E7EBFB;
   border-radius: 9px;
   padding: 12px 20px;
   font-family: "Comfortaa", cursive;
-  flex: 1;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
+  /* Prevent input from collapsing */
 }
 
 input ::placeholder {
@@ -227,20 +224,26 @@ input.error {
 
 .habit__form {
   display: flex;
-  gap: 15px;
+  gap: 10px;
+  /* Reduced gap */
   width: 100%;
-  padding: 0 10px 0 25px;
+  padding: 0 15px 0 25px;
+  /* Adjusted padding */
   position: relative;
+  align-items: center; /* Or center, depending on your preference */
+  justify-content: space-around;
 }
 
 .input__text {
   padding-left: 45px;
+  flex-grow: 1;
+  /* Allow input to take up available space */
 }
 
 .input__icon {
   position: absolute;
   top: 10px;
-  left: 45px;
+  left: 150px;
 }
 
 .cover {
@@ -249,7 +252,7 @@ input.error {
   right: 0;
   bottom: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,7 +263,7 @@ input.error {
 }
 
 .popup {
-  background: #FFFFFF;
+  background-color: #FFFFFF;
   box-shadow: 0px 8px 14px 12px rgba(56, 56, 56, 0.05);
   border-radius: 10px;
   max-width: 600px;
@@ -303,7 +306,7 @@ h2 {
 .icon {
   border: 1px solid #5051F9;
   border-radius: 14px;
-  background: white;
+  background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -312,11 +315,11 @@ h2 {
 }
 
 .icon_active {
-  background: #5051F9;
+  background-color: #5051F9;
 }
 
 .icon:hover {
-  background: #6A6AFB;
+  background-color: #6A6AFB;
 }
 
 .icon:hover img {
@@ -337,4 +340,254 @@ h2 {
 
 .popup__form input {
   width: 100%;
+}
+
+@media (max-width: 900px) {
+  .app {
+    flex-direction: column;
+    /* Stack panel and content vertically */
+    gap: 20px;
+    /* Reduce gap between sections */
+  }
+
+  .pannel {
+    min-height: auto;
+    /* Adjust height for mobile */
+    padding: 20px;
+    /* Reduce padding */
+    width: 100%;
+    /* Take full width */
+    position: fixed;
+    /* Stick to the bottom */
+    bottom: 0;
+    z-index: 10;
+    /* Ensure it's above other content */
+    box-shadow: 0px -4px 10px rgba(62, 107, 224, 0.08);
+    /* Add a subtle top shadow */
+    border-radius: 12px;
+    min-width: auto;
+  }
+
+  .logo {
+    display: none;
+    /* Hide logo on mobile */
+  }
+
+  .menu {
+    flex-direction: row;
+    /* Arrange menu items horizontally */
+    justify-content: center;
+    /* Distribute items evenly */
+    align-items: center;
+    gap: 15px;
+    /* Reduce gap between menu items */
+  }
+
+  .menu__list {
+    flex-direction: row;
+    /* Arrange habit icons horizontally */
+    gap: 15px;
+    /* Reduce gap */
+  }
+
+  .menu__item,
+  .menu__add {
+    height: 40px;
+    /* Slightly smaller menu buttons */
+    width: 40px;
+  }
+
+  .content {
+    min-width: 300px;
+    /* Adjust content width for mobile */
+    padding: 20px;
+    /* Reduce content padding */
+    margin-bottom: 60px;
+    /* Add margin to avoid overlap with fixed panel */
+  }
+
+  header {
+    flex-direction: column;
+    /* Stack heading and progress vertically */
+    align-items: flex-start;
+    /* Align items to the left */
+    gap: 15px;
+    /* Add gap between header elements */
+    margin-bottom: 20px;
+    /* Add some bottom margin */
+  }
+
+  h1 {
+    font-size: 24px;
+    /* Smaller heading */
+    line-height: 27px;
+  }
+
+  .progress {
+    min-width: 100%;
+    /* Make progress bar full width */
+  }
+
+  .habit {
+    flex-direction: column;
+    /* Stack day and form vertically */
+    align-items: stretch;
+    /* Make form full width */
+  }
+
+  .habit__day {
+    border-radius: 10px 10px 0 0;
+    /* Round only top corners */
+    border-bottom: 1px solid #E7EBFB;
+    /* Add bottom border */
+    border-right: none;
+    /* Remove right border */
+    padding: 15px;
+    /* Reduce padding */
+    min-width: auto;
+    /* Adjust width */
+    text-align: center;
+    /* Center the day text */
+  }
+
+  .habit__form {
+    display: flex;
+    gap: 8px;
+    /* Further reduced gap */
+    width: 100%;
+    padding: 12px 0 12px 0;
+    /* Further adjusted padding */
+    position: relative;
+    flex-direction: row;
+    /* Keep items in a row */
+
+    /* Align items vertically in the row */
+  }
+
+  .input__text {
+    padding-left: 45px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: auto; 
+  }
+
+  .input__icon {
+    position: absolute;
+    top: 50%;
+    /* Center vertically */
+    left: 80px;
+    /* Adjust left position */
+    transform: translateY(-50%);
+    /* Correct vertical centering */
+    width: 20px;
+    /* Adjust icon size if needed */
+    height: auto;
+    /* Adjust icon position */
+  }
+
+  .button {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 12px;
+    flex-grow: 0;
+    flex-shrink: 0; /* Prevent excessive shrinking */
+    min-width: 60px;
+  }
+
+  .popup {
+    padding: 15px;
+    /* Reduce popup padding */
+  }
+
+  h2 {
+    font-size: 20px;
+    /* Smaller popup heading */
+    line-height: 23px;
+    margin-bottom: 15px;
+    /* Add some bottom margin */
+  }
+
+  .icon-select {
+    gap: 15px;
+    /* Reduce gap between icons */
+    margin-bottom: 15px;
+    /* Reduce bottom margin */
+  }
+
+  .icon {
+    height: 35px;
+    /* Smaller icons */
+    width: 35px;
+  }
+
+  .popup__form {
+    gap: 10px;
+    /* Reduce gap in popup form */
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .progress__name {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .progress__percent {
+    font-size: 10px;
+    line-height: 11px;
+  }
+
+  .habit__day {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 10px;
+  }
+
+  .habit__form {
+    display: flex;
+  }
+
+  .input__text {
+    padding-left: 45px;
+    flex-grow: 1;
+  }
+
+  .button {
+    font-size: 11px;
+    padding-left: 5px;
+    padding-right: 5px;
+    flex-grow: 0;
+    flex-shrink: 0; /* Prevent excessive shrinking */
+    min-width: 60px;
+  }
+
+  input {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 10px;
+  }
+
+  .icon-select {
+    gap: 10px;
+  }
+
+  .icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .habit__form {
+    display: flex;
+  }
+
+  .input__icon {
+    left: 80px;
+    /* Adjust icon position for smaller screens */
+  }
 }
