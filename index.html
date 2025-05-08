@@ -9,7 +9,7 @@
 
   <meta property="og:image" content="/og.png" />
 
-   <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="./src/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
       <nav class="menu">
         <div class="menu__list">
         </div>
-        <button type="button" class="menu__add" onclick="togglePopup()">
+        <button type="button" class="menu__add">
           <img src="./src/assets/add.svg" alt="add a habit">
         </button>
       </nav>
@@ -49,11 +49,11 @@
         <div id="days"></div>
         <div class="habit">
           <div class="habit__day">Day 1</div>
-          <form class="habit__form" onsubmit="addDays(event)">
+          <form class="habit__form">
             <button class="button" type="submit">Ready</button>
             <input name="comment" class="input__text" type="text" placeholder="Comment" />
             <img class="input__icon" src="./src/assets/comment.svg" alt="">
-            
+
           </form>
         </div>
       </main>

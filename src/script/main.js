@@ -178,30 +178,32 @@ function addDays(event) {
 }
 
 function addHabit(event) {
-    event.preventDefault(); // Prevent the default form submission
-    console.log("addHabit function called"); // Add this console log
-    const data = validateForm(event.target, ["name", "icon", "target"]);
-    if (!data) {
-        console.log("Form validation failed");
-        return;
-    }
-    const maxId = habits.reduce((acc, habit) => (acc > habit.id ? acc : habit.id), 0);
-    const newHabit = {
-        id: maxId + 1,
-        name: data.name,
-        target: data.target,
-        icon: data.icon,
-        days: [],
-    };
-    habits.push(newHabit);
-    saveData();
-    rerender(newHabit.id);
-    resetForm(event.target, ["name", "target"]);
-    togglePopup();
+  event.preventDefault(); // Prevent the default form submission
+  console.log("addHabit function called"); // Add this console log
+  const data = validateForm(event.target, ["name", "icon", "target"]);
+  if (!data) {
+    console.log("Form validation failed");
+    return;
+  }
+  const maxId = habits.reduce(
+    (acc, habit) => (acc > habit.id ? acc : habit.id),
+    0
+  );
+  const newHabit = {
+    id: maxId + 1,
+    name: data.name,
+    target: data.target,
+    icon: data.icon,
+    days: [],
+  };
+  habits.push(newHabit);
+  saveData();
+  rerender(newHabit.id);
+  resetForm(event.target, ["name", "target"]);
+  togglePopup();
 }
 
-
-page.header.h1.addEventListener("click", () => { });
+page.header.h1.addEventListener("click", () => {});
 function setIcon(context, icon) {
   page.popup.iconField.value = icon;
   const activeIcon = document.querySelector(".icon.icon_active");
@@ -225,4 +227,7 @@ function setIcon(context, icon) {
   initializeHabitFlow();
   page.content.form.addEventListener("submit", addDays);
   page.popup.addHabitForm.addEventListener("submit", addHabit);
+
+  const addHabitButton = document.querySelector(".menu__add");
+  addHabitButton.addEventListener("click", togglePopup);
 })();
