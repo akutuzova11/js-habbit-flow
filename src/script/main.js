@@ -14,10 +14,12 @@ const page = {
   content: {
     daysContainer: document.getElementById("days"),
     nextDay: document.querySelector(".habit__day"),
+    form: document.querySelector(".habit__form"),
   },
   popup: {
     index: document.getElementById("add-habit-popup"),
     iconField: document.querySelector(".popup__form input[name='icon']"),
+    addHabitForm: document.querySelector(".popup__form"),
   },
 };
 
@@ -42,26 +44,24 @@ function togglePopup() {
 function resetForm(form, fields) {
   for (const field of fields) {
     form[field].value = "";
+    form[field].classList.remove("error");
   }
 }
 
 function validateForm(form, fields) {
   const formData = new FormData(form);
   const res = {};
+  let isValid = true;
   for (const field of fields) {
-    const fieldValue = data.get("field");
+    const fieldValue = formData.get(field);
     form[field].classList.remove("error");
     if (!fieldValue) {
       form[field].classList.add("error");
+      isValid = false;
     }
     res[field] = fieldValue;
   }
-  let isValid = true;
-  for (const field of fields) {
-    if (!res[field]) {
-      isValid = false;
-    }
-  }
+
   if (!isValid) {
     return;
   }
@@ -95,6 +95,21 @@ function rerenderHead(activeHabit) {
   page.header.progressCoverBar.style.width = `${progress}%`;
 }
 
+function deleteDay(index) {
+  habits = habits.map((habit) => {
+    if (habit.id === globalActiveHabitId) {
+      habit.days.splice(index, 1);
+      return {
+        ...habit,
+        days: habit.days,
+      };
+    }
+    return habit;
+  });
+  saveData();
+  rerender(globalActiveHabitId);
+}
+
 function rerenderContent(activeHabit) {
   page.content.daysContainer.innerHTML = "";
 
@@ -102,15 +117,25 @@ function rerenderContent(activeHabit) {
     const element = document.createElement("div");
     element.classList.add("habit");
 
-    element.innerHTML = `<div class="habit__day"> Day ${index + 1}</div>
-    <div class="habit__comment">${day.comment}</div>
-    <button class="habit__delete" onclick="deleteDay(${index})">
-    <img src="./src/assets/delete.svg" alt="Delete day ${index + 1}" />
-    </button>`;
+    const dayDiv = document.createElement("div");
+    dayDiv.classList.add("habit__day");
+    dayDiv.textContent = `Day ${index + 1}`;
 
-    element
-      .querySelector(".habit__delete")
-      .addEventListener("click", () => deleteDay(index));
+    const commentDiv = document.createElement("div");
+    commentDiv.classList.add("habit__comment");
+    commentDiv.textContent = day.comment;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("habit__delete");
+    deleteButton.addEventListener("click", () => deleteDay(index));
+    const deleteImg = document.createElement("img");
+    deleteImg.src = "./src/assets/delete.svg";
+    deleteImg.alt = `Delete day ${index + 1}`;
+    deleteButton.appendChild(deleteImg);
+
+    element.appendChild(dayDiv);
+    element.appendChild(commentDiv);
+    element.appendChild(deleteButton);
 
     page.content.daysContainer.appendChild(element);
   });
@@ -147,65 +172,57 @@ function addDays(event) {
     }
     return habit;
   });
+  saveData();
+  rerender(globalActiveHabitId);
   resetForm(event.target, ["comment"]);
-  rerender(globalActiveHabitId);
-  saveData();
-}
-
-function deleteDay(index) {
-  habits = habits.map((habit) => {
-    if (habit.id === globalActiveHabitId) {
-      habit.days.splice(index, 1);
-      return {
-        ...habit,
-        days: habit.days,
-      };
-    }
-    return habit;
-  });
-  rerender(globalActiveHabitId);
-  saveData();
-}
-
-page.header.h1.addEventListener("click", () => {});
-function setIcon(context, icon) {
-  page.popup.iconField.value = icon;
-  const activeIcon = document.querySelector(".icon.icon_active");
-  activeIcon.classList.remove(".icon_active");
-  context.classList.add("icon_active");
 }
 
 function addHabit(event) {
-  event.preventDefault();
+    event.preventDefault(); // Prevent the default form submission
+    console.log("addHabit function called"); // Add this console log
+    const data = validateForm(event.target, ["name", "icon", "target"]);
+    if (!data) {
+        console.log("Form validation failed");
+        return;
+    }
+    const maxId = habits.reduce((acc, habit) => (acc > habit.id ? acc : habit.id), 0);
+    const newHabit = {
+        id: maxId + 1,
+        name: data.name,
+        target: data.target,
+        icon: data.icon,
+        days: [],
+    };
+    habits.push(newHabit);
+    saveData();
+    rerender(newHabit.id);
+    resetForm(event.target, ["name", "target"]);
+    togglePopup();
+}
 
-  const data = validateForm(event.target, ["name", "icon", "target"]);
-  if (!data) {
-    return;
-  }
-  const maxId = habits.reduce(
-    (acc, habit) => (acc > habit.id ? acc : habit.id),
-    0
-  );
-  habits.push({
-    id: maxId + 1,
-    name: data.name,
-    target: data.target,
-    icon: data.icon,
-    days: [],
-  });
-  resetForm(event.target, ["name", "target"]);
-  togglePopup();
-  saveData();
-  rerender(maxId + 1);
+
+page.header.h1.addEventListener("click", () => { });
+function setIcon(context, icon) {
+  page.popup.iconField.value = icon;
+  const activeIcon = document.querySelector(".icon.icon_active");
+  activeIcon.classList.remove("icon_active");
+  context.classList.add("icon_active");
 }
 
 (() => {
   loadData();
-  const hashId = Number(document.location.hash.replace("#", ""));
-  const urlHabit = habits.find((habit) => habit.id === hashId);
-  if (urlHabit) {
-    rerender(urlHabit.id);
-  } else {
-    rerender(habits[0].id);
+  function initializeHabitFlow() {
+    if (habits.length > 0) {
+      const hashId = Number(document.location.hash.replace("#", ""));
+      const urlHabit = habits.find((habit) => habit.id === hashId);
+      if (urlHabit) {
+        rerender(urlHabit.id);
+      } else {
+        rerender(habits[0]?.id);
+      }
+    }
   }
+  initializeHabitFlow();
+  page.content.form.addEventListener("submit", addDays);
+  page.popup.addHabitForm.addEventListener("submit", addHabit);
 })();
