@@ -165,6 +165,11 @@ h1 {
   min-width: 100px;
 }
 
+.habit__comment-container {
+  display: flex;
+  align-items: center;
+}
+
 .habit__comment {
   font-size: 14px;
   line-height: 16px;

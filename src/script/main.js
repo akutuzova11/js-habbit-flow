@@ -121,21 +121,28 @@ function rerenderContent(activeHabit) {
     dayDiv.classList.add("habit__day");
     dayDiv.textContent = `Day ${index + 1}`;
 
+    const commentContainer = document.createElement("div");
+    commentContainer.classList.add("habit__comment-container");
+
     const commentDiv = document.createElement("div");
     commentDiv.classList.add("habit__comment");
     commentDiv.textContent = day.comment;
 
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("habit__delete");
-    deleteButton.addEventListener("click", () => deleteDay(index));
-    const deleteImg = document.createElement("img");
-    deleteImg.src = "./src/assets/delete.svg";
-    deleteImg.alt = `Delete day ${index + 1}`;
-    deleteButton.appendChild(deleteImg);
+    commentContainer.appendChild(commentDiv);
+
+    if (day.comment) {
+      const deleteButton = document.createElement("button");
+      deleteButton.classList.add("habit__delete");
+      deleteButton.addEventListener("click", () => deleteDay(index));
+      const deleteImg = document.createElement("img");
+      deleteImg.src = "./src/assets/delete.svg";
+      deleteImg.alt = `Delete day ${index + 1}`;
+      deleteButton.appendChild(deleteImg);
+      commentContainer.appendChild(deleteButton);
+    }
 
     element.appendChild(dayDiv);
-    element.appendChild(commentDiv);
-    element.appendChild(deleteButton);
+    element.appendChild(commentContainer);
 
     page.content.daysContainer.appendChild(element);
   });
