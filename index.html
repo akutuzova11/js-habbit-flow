@@ -33,7 +33,12 @@
 
     <div class="content">
       <header>
-        <h1 class="h1">-</h1>
+        <div class="habit__container">
+          <h1 class="h1">-</h1>
+          <button class="habit__delete" type="button">
+            <img src="./src/assets/delete.svg" alt="Delete habit">
+          </button>
+        </div>
         <div class="progress">
           <div class="progress__text">
             <div class="progress__name">Progress</div>
@@ -46,15 +51,17 @@
       </header>
 
       <main>
-        <div id="days"></div>
+        <div id="habit-list"></div>
         <div class="habit">
-          <div class="habit__day">Day 1</div>
-          <form class="habit__form">
-            <button class="button" type="submit">Ready</button>
-            <input name="comment" class="input__text" type="text" placeholder="Comment" />
-            <img class="input__icon" src="./src/assets/comment.svg" alt="">
-          </form>
-        </div>
+          <div id="days"></div>
+          <div class="habit">
+            <div class="habit__day">Day 1</div>
+            <form class="habit__form">
+              <button class="button" type="submit">Ready</button>
+              <input name="comment" class="input__text" type="text" placeholder="Comment" />
+              <img class="input__icon" src="./src/assets/comment.svg" alt="">
+            </form>
+          </div>
       </main>
     </div>
   </div>
