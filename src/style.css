@@ -168,6 +168,9 @@ h1 {
 .habit__comment-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex-grow: 1;
 }
 
 .habit__comment {
@@ -243,7 +246,6 @@ input.error {
 .input__text {
   padding-left: 45px;
   flex-grow: 1;
-  /* Allow input to take up available space */
 }
 
 .input__icon {
@@ -280,6 +282,7 @@ input.error {
   flex-direction: column;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .popup__close {
@@ -318,6 +321,7 @@ h2 {
   align-items: center;
   justify-content: center;
   width: 45px;
+  height: 45px;
   cursor: pointer;
 }
 
@@ -338,7 +342,7 @@ h2 {
 }
 
 .popup__form {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -486,7 +490,7 @@ h2 {
     position: absolute;
     top: 50%;
     /* Center vertically */
-    left: 90px;
+    left: 110px;
     /* Adjust left position */
     transform: translateY(-50%);
     /* Correct vertical centering */
@@ -501,11 +505,12 @@ h2 {
     flex-grow: 0;
     flex-shrink: 0;
     /* Prevent excessive shrinking */
-    min-width: 60px;
+    min-width: 80px;
   }
 
   .popup {
-    padding: 15px;
+    margin: 20px;
+    max-width: 500px;
     /* Reduce popup padding */
   }
 
@@ -522,12 +527,6 @@ h2 {
     /* Reduce gap between icons */
     margin-bottom: 15px;
     /* Reduce bottom margin */
-  }
-
-  .icon {
-    height: 35px;
-    /* Smaller icons */
-    width: 35px;
   }
 
   .popup__form {
@@ -575,7 +574,7 @@ h2 {
     flex-grow: 0;
     flex-shrink: 0;
     /* Prevent excessive shrinking */
-    min-width: 60px;
+    min-width: 70px;
   }
 
   input {
@@ -593,7 +592,12 @@ h2 {
   }
 
   .input__icon {
-    left: 90px;
-    /* Adjust icon position for smaller screens */
+    left: 100px;
+  }
+
+  .popup {
+    margin: 20px;
+    max-width: 300px;
+    /* Reduce popup padding */
   }
 }
