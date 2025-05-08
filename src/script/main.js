@@ -230,4 +230,17 @@ function setIcon(context, icon) {
 
   const addHabitButton = document.querySelector(".menu__add");
   addHabitButton.addEventListener("click", togglePopup);
+
+  const iconButtons = document.querySelectorAll(".icon");
+  iconButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const iconName = this.querySelector("img")
+        .getAttribute("alt")
+        .toLowerCase();
+      setIcon(this, iconName);
+    });
+  });
+
+  const closePopupButton = document.querySelector(".popup__close");
+  closePopupButton.addEventListener("click", togglePopup);
 })();

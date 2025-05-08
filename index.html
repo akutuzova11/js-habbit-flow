@@ -65,13 +65,13 @@
       <h2>New habit</h2>
       <div class="icon-label">Icon</div>
       <div class="icon-select">
-        <button type="button" class="icon icon_active" onclick="setIcon(this,'sport')">
+        <button type="button" class="icon icon_active">
           <img src="./src/assets/sport.svg" alt="Sport">
         </button>
-        <button type="button" class="icon" onclick="setIcon(this, 'water')">
+        <button type="button" class="icon">
           <img src="./src/assets/water.svg" alt="Water">
         </button>
-        <button type="button" class="icon" onclick="setIcon(this,'food')">
+        <button type="button" class="icon">
           <img src="./src/assets/food.svg" alt="Food">
         </button>
         <form class="popup__form" onsubmit="addHabit(event)">
@@ -80,7 +80,7 @@
           <input type="number" name="target" placeholder="Goal">
           <button class="button" type="submit">Add</button>
         </form>
-        <button type="button" class="popup__close" onclick="togglePopup()">
+        <button type="button" class="popup__close">
           <img src="./src/assets/close.svg" alt="Close popup">
         </button>
       </div>
