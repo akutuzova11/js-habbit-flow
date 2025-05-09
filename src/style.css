@@ -171,11 +171,12 @@ h1 {
 }
 
 .habit {
-  background-color: #FFFFFF;
+
   border-radius: 10px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   position: relative;
+  background-color: #FBFAFF;
 }
 
 .habit__day {
@@ -191,19 +192,33 @@ h1 {
 .habit__comment-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: relative;
   flex-grow: 1;
+  gap: 10px;
+  background-color: #FFFFFF;
+}
+
+.habit__comment-text {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 20px 0 20px 10px;
+  word-wrap: break-word;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 620px;
+  min-width: 200px;
 }
 
 .habit__comment {
+
+  padding: 0;
   font-size: 14px;
   line-height: 16px;
-  padding: 20px 25px;
 }
 
+
 .day__delete {
-  margin-left: auto;
   margin-right: 10px;
   background: none;
   border: none;
@@ -264,6 +279,7 @@ input.error {
   max-width: 900px;
   min-width: 200px;
   margin: 0 auto;
+  background-color: #FFFFFF;
 }
 
 .input__text {
@@ -273,8 +289,9 @@ input.error {
 
 .input__icon {
   position: absolute;
-  top: 10px;
+  top: 50%;
   left: 140px;
+  transform: translateY(-50%);
   width: 20px;
 }
 
