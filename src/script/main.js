@@ -15,6 +15,7 @@ const page = {
     daysContainer: document.getElementById("days"),
     nextDay: document.querySelector(".habit__day"),
     form: document.querySelector(".habit__form"),
+    habitListContainer: document.getElementById("habit-list"),
   },
   popup: {
     index: document.getElementById("add-habit-popup"),
@@ -81,7 +82,7 @@ function rerenderMenu(activeHabit) {
     }
 
     element.addEventListener("click", () => rerender(habit.id));
-    page.menu.appendChild(element);
+    page.menu.prepend(element);
   }
 }
 
@@ -93,6 +94,11 @@ function rerenderHead(activeHabit) {
       : (activeHabit.days.length / activeHabit.target) * 100;
   page.header.progressPercent.innerText = progress.toFixed(0) + "%";
   page.header.progressCoverBar.style.width = `${progress}%`;
+
+  const deleteButton = document.querySelector(".habit__delete");
+  if (deleteButton) {
+    deleteButton.addEventListener("click", () => deleteHabit(activeHabit.id));
+  }
 }
 
 function deleteDay(index) {
@@ -125,14 +131,13 @@ function rerenderContent(activeHabit) {
     commentContainer.classList.add("habit__comment-container");
 
     const commentDiv = document.createElement("div");
-    commentDiv.classList.add("habit__comment");
+    commentDiv.classList.add("habit__comment-text");
     commentDiv.textContent = day.comment;
-
     commentContainer.appendChild(commentDiv);
 
     if (day.comment) {
       const deleteButton = document.createElement("button");
-      deleteButton.classList.add("habit__delete");
+      deleteButton.classList.add("day__delete");
       deleteButton.addEventListener("click", () => deleteDay(index));
       const deleteImg = document.createElement("img");
       deleteImg.src = "./src/assets/delete.svg";
@@ -218,6 +223,29 @@ function setIcon(context, icon) {
   context.classList.add("icon_active");
 }
 
+function deleteHabit(habitId) {
+  habits = habits.filter((habit) => habit.id !== habitId);
+  saveData();
+
+  if (globalActiveHabitId === habitId) {
+    globalActiveHabitId = null;
+    document.location.hash = "";
+    page.header.h1.innerText = "-";
+    page.header.progressPercent.innerText = "0%";
+    page.header.progressCoverBar.style.width = "0%";
+    page.content.daysContainer.innerHTML = "";
+    if (habits.length > 0) {
+      rerender(habits[0].id);
+    } else {
+      rerenderMenu({});
+      page.content.nextDay.innerText = "";
+    }
+  } else {
+    rerenderMenu(habits.find((h) => h.id === globalActiveHabitId) || {});
+  }
+  rerenderContent(habits.find((h) => h.id === globalActiveHabitId) || {});
+}
+
 (() => {
   loadData();
   function initializeHabitFlow() {
@@ -250,4 +278,15 @@ function setIcon(context, icon) {
 
   const closePopupButton = document.querySelector(".popup__close");
   closePopupButton.addEventListener("click", togglePopup);
+
+  const daysContainer = document.getElementById("days");
+  daysContainer.addEventListener("click", function (event) {
+    if (event.target.closest(".habit__delete")) {
+      const habitItem = event.target.closest(".habit");
+      if (habitItem) {
+        const habitIdToDelete = Number(habitItem.dataset.habitId);
+        deleteHabit(habitIdToDelete);
+      }
+    }
+  });
 })();
