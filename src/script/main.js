@@ -185,18 +185,15 @@ function addDays(event) {
     return habit;
   });
   saveData();
-  console.log("Habits after adding day:", habits);
+  "Habits after adding day:", habits;
   rerender(globalActiveHabitId);
   resetForm(event.target, ["comment"]);
 }
 
 function addHabit(event) {
-  event.preventDefault(); // Prevent the default form submission
-  console.log("addHabit function called"); // Add this console log
+  event.preventDefault(); 
   const data = validateForm(event.target, ["name", "icon", "target"]);
   if (!data) {
-    console.log("Form validation failed");
-    return;
   }
   const maxId = habits.reduce(
     (acc, habit) => (acc > habit.id ? acc : habit.id),
