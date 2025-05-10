@@ -182,7 +182,7 @@ h1 {
 .habit__day {
   background-color: #FBFAFF;
   border-radius: 10px 0 0 10px;
-  border-right: 1px solid #E7EBFB;
+  border: 1px solid #E7EBFB;
   font-size: 14px;
   line-height: 16px;
   padding: 20px 40px;
@@ -197,6 +197,8 @@ h1 {
   flex-grow: 1;
   gap: 10px;
   background-color: #FFFFFF;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #E7EBFB;
 }
 
 .habit__comment-text {
@@ -211,7 +213,6 @@ h1 {
 }
 
 .habit__comment {
-
   padding: 0;
   font-size: 14px;
   line-height: 16px;
@@ -257,7 +258,6 @@ input {
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  /* Prevent input from collapsing */
 }
 
 input ::placeholder {
@@ -280,6 +280,8 @@ input.error {
   min-width: 200px;
   margin: 0 auto;
   background-color: #FFFFFF;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #E7EBFB;
 }
 
 .input__text {
@@ -396,118 +398,84 @@ h2 {
 @media (max-width: 900px) {
   .app {
     flex-direction: column;
-    /* Stack panel and content vertically */
     gap: 20px;
-    /* Reduce gap between sections */
   }
 
   .pannel {
     min-height: auto;
-    /* Adjust height for mobile */
     padding: 20px;
-    /* Reduce padding */
     width: 100%;
-    /* Take full width */
     position: fixed;
-    /* Stick to the bottom */
     bottom: 0;
     z-index: 10;
-    /* Ensure it's above other content */
     box-shadow: 0px -4px 10px rgba(62, 107, 224, 0.08);
-    /* Add a subtle top shadow */
     border-radius: 12px;
     min-width: auto;
   }
 
   .logo {
     display: none;
-    /* Hide logo on mobile */
   }
 
   .menu {
     flex-direction: row;
-    /* Arrange menu items horizontally */
     justify-content: center;
-    /* Distribute items evenly */
     align-items: center;
     gap: 15px;
-    /* Reduce gap between menu items */
   }
 
   .menu__list {
     flex-direction: row;
-    /* Arrange habit icons horizontally */
     gap: 15px;
-    /* Reduce gap */
   }
 
   .menu__item,
   .menu__add {
     height: 40px;
-    /* Slightly smaller menu buttons */
     width: 40px;
   }
 
   .content {
     min-width: 300px;
-    /* Adjust content width for mobile */
     padding: 20px;
-    /* Reduce content padding */
     margin-bottom: 60px;
-    /* Add margin to avoid overlap with fixed panel */
   }
 
   header {
     flex-direction: column;
-    /* Stack heading and progress vertically */
     align-items: flex-start;
-    /* Align items to the left */
     gap: 15px;
-    /* Add gap between header elements */
     margin-bottom: 20px;
-    /* Add some bottom margin */
   }
 
   h1 {
     font-size: 24px;
-    /* Smaller heading */
     line-height: 27px;
   }
 
   .progress {
     min-width: 100%;
-    /* Make progress bar full width */
   }
 
   .habit {
     flex-direction: column;
-    /* Stack day and form vertically */
     align-items: stretch;
-    /* Make form full width */
   }
 
   .habit__day {
     border-radius: 10px 10px 0 0;
-    /* Round only top corners */
     border-bottom: 1px solid #E7EBFB;
-    /* Add bottom border */
     border-right: none;
-    /* Remove right border */
     padding: 15px;
-    /* Reduce padding */
     min-width: auto;
-    /* Adjust width */
     text-align: center;
-    /* Center the day text */
   }
 
   .habit__form {
     display: flex;
     gap: 8px;
-    /* Further reduced gap */
     width: 100%;
     padding: 8px;
-    /* Further adjusted padding */
     position: relative;
     align-items: center;
     justify-content: space-around;
@@ -529,13 +497,9 @@ h2 {
   .input__icon {
     position: absolute;
     top: 50%;
-    /* Center vertically */
     left: 110px;
-    /* Adjust left position */
     transform: translateY(-50%);
-    /* Correct vertical centering */
     width: 16px;
-    /* Adjust icon position */
   }
 
   .button {
@@ -544,38 +508,30 @@ h2 {
     font-size: 12px;
     flex-grow: 0;
     flex-shrink: 0;
-    /* Prevent excessive shrinking */
     min-width: 80px;
   }
 
   .popup {
     margin: 20px;
     max-width: 500px;
-    /* Reduce popup padding */
   }
 
   h2 {
     font-size: 20px;
-    /* Smaller popup heading */
     line-height: 23px;
     margin-bottom: 15px;
-    /* Add some bottom margin */
   }
 
   .icon-select {
     gap: 15px;
-    /* Reduce gap between icons */
     margin-bottom: 15px;
-    /* Reduce bottom margin */
   }
 
   .popup__form {
     gap: 10px;
-    /* Reduce gap in popup form */
   }
 }
 
-/* Small Mobile Devices */
 @media (max-width: 480px) {
   h1 {
     font-size: 20px;
@@ -613,7 +569,6 @@ h2 {
     padding-right: 5px;
     flex-grow: 0;
     flex-shrink: 0;
-    /* Prevent excessive shrinking */
     min-width: 70px;
   }
 
@@ -638,6 +593,5 @@ h2 {
   .popup {
     margin: 20px;
     max-width: 300px;
-    /* Reduce popup padding */
   }
 }
