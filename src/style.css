@@ -403,7 +403,6 @@ h2 {
 
   .app {
     flex-direction: column;
-
   }
 
   .pannel {
@@ -430,15 +429,17 @@ h2 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 15px;
   }
 
   .menu__list {
     flex-direction: row;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    width: calc(11 * (40px + 15px));
+    max-width: 100%;
   }
 
   .menu__item,
@@ -566,6 +567,14 @@ h2 {
   }
 }
 
+@media (max-width: 600px) {
+
+  .menu__list {
+    width: calc(7 * (40px + 15px));
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 480px) {
 
   .pannel {
@@ -601,6 +610,11 @@ h2 {
   .input__text {
     flex-grow: 1;
     min-width: 150px;
+  }
+
+  .menu__list {
+    width: calc(5 * (40px + 15px));
+    max-width: 100%;
   }
 
   .button {
