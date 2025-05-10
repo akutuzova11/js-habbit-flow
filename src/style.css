@@ -22,7 +22,7 @@ body {
   padding: 30px;
 }
 
-.logo {
+.pannel__logo {
   margin-bottom: 50px;
   padding: 0;
   width: 150px;
@@ -97,6 +97,10 @@ header {
   padding: 45px;
 }
 
+.content__logo {
+  display: none;
+}
+
 .habit__container {
   display: flex;
   flex-direction: row;
@@ -120,9 +124,10 @@ header {
   height: 35px;
 }
 
-h1 {
+.content h1 {
+  overflow-wrap: break-word;
   font-size: 30px;
-  line-height: 33px;
+  line-height: 1;
   color: #000000;
 }
 
@@ -414,9 +419,10 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
 
-  .logo {
+  .pannel__logo {
     display: none;
   }
 
@@ -424,11 +430,14 @@ h2 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; 
     gap: 15px;
   }
 
   .menu__list {
     flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: center;
     gap: 15px;
   }
 
@@ -442,18 +451,27 @@ h2 {
     min-width: 300px;
     padding-bottom: 40px;
     margin-bottom: 60px;
+    margin-top: -20px;
+  }
+
+  .content__logo {
+    display: block;
+    margin: auto;
+    padding: 0;
+    width: 150px;
   }
 
   header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 15px;
     margin-bottom: 20px;
   }
 
-  h1 {
+  .content h1 {
     font-size: 24px;
-    line-height: 27px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .progress {
@@ -549,9 +567,15 @@ h2 {
 }
 
 @media (max-width: 480px) {
-  h1 {
+
+  .pannel {
+    flex-wrap: wrap;
+  }
+
+  .content h1 {
     font-size: 20px;
-    line-height: 23px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .progress__name {
