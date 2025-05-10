@@ -185,6 +185,7 @@ function addDays(event) {
     return habit;
   });
   saveData();
+  console.log("Habits after adding day:", habits);
   rerender(globalActiveHabitId);
   resetForm(event.target, ["comment"]);
 }
@@ -289,4 +290,5 @@ function deleteHabit(habitId) {
       }
     }
   });
+  page.popup.addHabitForm.addEventListener("submit", addHabit);
 })();
