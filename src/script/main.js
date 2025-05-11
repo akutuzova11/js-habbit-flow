@@ -75,7 +75,7 @@ function rerenderMenu(activeHabit) {
     const element = document.createElement("button");
     element.setAttribute("menu-habit-id", habit.id);
     element.classList.add("menu__item");
-    element.innerHTML = ` <img src="/src/assets/${habit.icon}.svg" alt="${habit.name}" >`;
+    element.innerHTML = ` <img src="./src/assets/${habit.icon}.svg" alt="${habit.name}" >`;
 
     if (activeHabit.id === habit.id) {
       element.classList.add("menu__item--active");
@@ -140,7 +140,7 @@ function rerenderContent(activeHabit) {
       deleteButton.classList.add("day__delete");
       deleteButton.addEventListener("click", () => deleteDay(index));
       const deleteImg = document.createElement("img");
-      deleteImg.src = "/src/assets/delete.svg";
+      deleteImg.src = "./src/assets/delete.svg";
       deleteImg.alt = `Delete day ${index + 1}`;
       deleteButton.appendChild(deleteImg);
       commentContainer.appendChild(deleteButton);
