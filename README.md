@@ -28,6 +28,6 @@ https://akutuzova11.github.io/js-habit-flow/
 
 ## Contributing
 
-Contributions to improve this currency converter are welcome! 
+Contributions to improve this application are welcome! 
 If you have any suggestions, feature requests, or bug reports, please feel free to open an issue or submit a pull request.
 
